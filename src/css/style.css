@@ -1,0 +1,32 @@
+:root {
+    /* CSS HEX */
+--black: #000000ff;
+--tiger-flame: #fe5d26ff;
+--sky-blue: #97d2fbff;
+--baltic-blue: #035e7bff;
+--dry-sage: #ccc9a1ff;
+}
+
+.pt-serif-regular {
+  font-family: "PT Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.pt-serif-bold {
+  font-family: "PT Serif", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.pt-serif-regular-italic {
+  font-family: "PT Serif", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.pt-serif-bold-italic {
+  font-family: "PT Serif", serif;
+  font-weight: 700;
+  font-style: italic;
+}

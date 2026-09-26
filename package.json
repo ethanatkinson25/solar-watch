@@ -1,0 +1,38 @@
+{
+  "name": "solar-watch",
+  "version": "1.0.0",
+  "description": "A final project for the mock company Solar Watch",
+  "keywords": [
+    "science",
+    "observatory",
+    "space",
+    "planets"
+  ],
+  "homepage": "https://github.com/ethanatkinson25/solar-watch#readme",
+  "bugs": {
+    "url": "https://github.com/ethanatkinson25/solar-watch/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethanatkinson25/solar-watch.git"
+  },
+  "license": "ISC",
+  "author": "Ethan Atkinson",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.5",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "prettier": "^3.9.9",
+    "vite": "^8.3.1"
+  }
+}
