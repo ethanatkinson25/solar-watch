@@ -2,16 +2,154 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <script type="module" src="/src/js/main.js"></script>
+    <script type="module" src="/js/main.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="stylesheet" href="/src/css/style.css" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <link rel="stylesheet" href="/css/style.css" />
     <title>Solar Watch</title>
   </head>
   <body>
-    <h1>Solar Watch</h1>
+    <header class="main-header" id="main-header">
+      <!-- <a class="brand" href="#home" aria-label="Solar Watch home">
+        <img src="/images/space-svgrepo-com.svg" alt="" />
+        <span>Solar Watch</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#stories">Discover</a>
+        <a href="#about">Our observatory</a>
+        <a href="#experiences">Visit</a>
+      </nav>
+      <a class="header-cta" href="#experiences">Plan your visit</a> -->
+    </header>
+
+    <main>
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="hero-content">
+          <p class="eyebrow">A window into the infinite</p>
+          <h1 id="hero-title">Explore What Lies<br />Beyond</h1>
+          <p class="hero-copy">Discover the wonders of our universe at the edge of the known world.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="/src/store/index.html">Plan your visit</a>
+            <a class="button button-outline" href="/src/tours/index.html">Discover the observatory</a>
+          </div>
+        </div>
+        <a class="scroll-cue" href="#stories">Scroll to explore <span aria-hidden="true">↓</span></a>
+      </section>
+
+      <section class="section stories" id="stories" aria-labelledby="stories-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Field notes & discoveries</p>
+            <h2 id="stories-title">Latest from the Observatory</h2>
+          </div>
+          <a class="text-link" href="/src/news/index.html">All stories <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="story-grid">
+          <article class="story-card">
+            <img src="/images/falling-stars.jpg" alt="A field of stars across the night sky" />
+            <div class="card-copy">
+              <p class="card-meta">Sky guide <span>·</span> 6 min read</p>
+              <h3>When the night sky comes alive</h3>
+              <p>Find your bearings among the constellations and learn what to look for after dark.</p>
+              <a class="text-link" href="/src/news/index.html">Read the story <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+          <article class="story-card">
+            <img src="/images/hero.webp" alt="A glowing planet suspended in a star-filled sky" />
+            <div class="card-copy">
+              <p class="card-meta">Our solar system <span>·</span> 4 min read</p>
+              <h3>Worlds beyond our own</h3>
+              <p>Take a closer look at the planets, moons, and mysteries in our celestial neighborhood.</p>
+              <a class="text-link" href="/src/news/index.html">Read the story <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+          <article class="story-card">
+            <img src="/images/lens-exposure.webp" alt="The observatory telescope beneath the stars" />
+            <div class="card-copy">
+              <p class="card-meta">Behind the lens <span>·</span> 8 min read</p>
+              <h3>How we see the distant universe</h3>
+              <p>Step inside the instruments that bring faint and faraway light into focus.</p>
+              <a class="text-link" href="/src/news/index.html">Read the story <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section about" id="about" aria-labelledby="about-title">
+        <div class="about-copy">
+          <p class="eyebrow">A legacy of looking up</p>
+          <h2 id="about-title">Stewardship of the Starlit Void</h2>
+          <p class="about-intro">The clearest view of the cosmos begins with caring for the darkness around us.</p>
+          <p>Solar Watch brings curious minds and careful science together. We protect our night skies, share what we learn, and keep the wonders above us within reach for generations to come.</p>
+          <dl class="impact-stats">
+            <div><dt>20+</dt><dd>years exploring the night sky</dd></div>
+            <div><dt>50,000+</dt><dd>visitors welcomed each year</dd></div>
+            <div><dt>32%</dt><dd>of our site protected as dark sky</dd></div>
+          </dl>
+          <a class="text-link" href="/src/store/index.html">Our mission <span aria-hidden="true">→</span></a>
+        </div>
+        <figure class="about-image">
+          <img src="/images/lens-exposure.webp" alt="A large telescope inside the observatory dome" />
+          <figcaption>Under the same sky, we keep looking.</figcaption>
+        </figure>
+      </section>
+
+      <section class="section experiences" id="experiences" aria-labelledby="experiences-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Make a night of it</p>
+            <h2 id="experiences-title">Experience the Observatory</h2>
+            <p class="section-intro">Come curious. Leave with a bigger view of the universe.</p>
+          </div>
+        </div>
+        <div class="experience-grid">
+          <article class="experience-card">
+            <img src="/images/falling-stars.jpg" alt="Stars visible above the observatory grounds" />
+            <div class="card-copy">
+              <p class="eyebrow">After dark</p>
+              <h3>Night Sky Tours</h3>
+              <p>Explore the constellations with our astronomers beneath open skies.</p>
+              <a class="button button-outline" href="/src/tours/index.html">Explore tours</a>
+            </div>
+          </article>
+          <article class="experience-card">
+            <img src="/images/hero.webp" alt="A planet glowing against the darkness of space" />
+            <div class="card-copy">
+              <p class="eyebrow">Look closer</p>
+              <h3>Solar Observing</h3>
+              <p>See our nearest star safely through specialist solar telescopes.</p>
+              <a class="button button-outline" href="/src/tours/index.html">View sessions</a>
+            </div>
+          </article>
+          <article class="experience-card">
+            <img src="/images/lens-exposure.webp" alt="The observatory's telescope and viewing instruments" />
+            <div class="card-copy">
+              <p class="eyebrow">Inside the dome</p>
+              <h3>Behind the Scenes</h3>
+              <p>Go inside the dome and discover how an observatory works.</p>
+              <a class="button button-outline" href="/src/tours/index.html">Take a tour</a>
+            </div>
+          </article>
+          <article class="experience-card">
+            <img src="/images/falling-stars.jpg" alt="A brilliant night sky ready for stargazing" />
+            <div class="card-copy">
+              <p class="eyebrow">For young explorers</p>
+              <h3>Family Stargazing</h3>
+              <p>Share hands-on activities and first discoveries with the whole family.</p>
+              <a class="button button-outline" href="/src/tours/index.html">Find an event</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="main-footer" id="main-footer">
+      <!-- <a class="brand" href="#home"><img src="/images/space-svgrepo-com.svg" alt="" /><span>Solar Watch</span></a>
+      <p>Keep looking up.</p>
+      <small>2026 &copy; Solar Watch</small> -->
+    </footer>
   </body>
 </html>
