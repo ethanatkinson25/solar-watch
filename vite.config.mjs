@@ -15,7 +15,10 @@ export default defineConfig({
         tours: resolve(import.meta.dirname, "src/tours/index.html"),
         news: resolve(import.meta.dirname, "src/news/index.html"),
         mars: resolve(import.meta.dirname, "src/mars/index.html"),
-        gallery: resolve(import.meta.dirname, "src/gallery/index.html")
+        gallery: resolve(import.meta.dirname, "src/gallery/index.html"),
+        cart: resolve(import.meta.dirname, "src/cart/index.html"),
+        checkout: resolve(import.meta.dirname, "src/checkout/index.html"),
+        success: resolve(import.meta.dirname, "src/checkout/success.html")
       },
     },
   },

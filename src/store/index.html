@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <script type="module" src="/js/main.js"></script>
-    <script type="module" src="/src/js/store.js"></script>
+    <meta name="description" content="Explore the wonders of the universe with Solar Watch. Discover our observatory, tours, and latest astronomical discoveries." />
+    <script type="module" src="/js/store.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,23 +14,32 @@
   </head>
   <body>
     <header class="main-header" id="main-header">
-      <!-- <a class="brand" href="#home" aria-label="Solar Watch home">
-        <img src="/images/space-svgrepo-com.svg" alt="" />
-        <span>Solar Watch</span>
-      </a>
-      <nav class="main-nav" aria-label="Main navigation">
-        <a href="#stories">Discover</a>
-        <a href="#about">Our observatory</a>
-        <a href="#experiences">Visit</a>
-      </nav>
-      <a class="header-cta" href="#experiences">Plan your visit</a> -->
+      
     </header>
     <main>
+      <section class="cart-section">
+        <h2><a href="/cart/index.html">Your Cart</a></h2>
+      </section>
+      <section class="products">
+        <div class="products-toolbar">
+          <h2>Top Products</h2>
+          <label class="sort-control" for="product-sort">
+            Sort:
+            <select id="product-sort" name="product-sort">
+              <option value="name-asc">Name: A-Z</option>
+              <option value="name-desc">Name: Z-A</option>
+              <option value="price-asc">Price: Low-High</option>
+              <option value="price-desc">Price: High-Low</option>
+            </select>
+          </label>
+        </div>
+        <ul class="product-list">
+          
+        </ul>
+      </section>
     </main>
     <footer class="main-footer" id="main-footer">
-      <!-- <a class="brand" href="#home"><img src="/images/space-svgrepo-com.svg" alt="" /><span>Solar Watch</span></a>
-      <p>Keep looking up.</p>
-      <small>2026 &copy; Solar Watch</small> -->
+    
     </footer>
   </body>
 </html>
