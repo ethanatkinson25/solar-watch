@@ -10,6 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
     <link rel="stylesheet" href="/css/style.css" />
+    <link rel="preload"
+      as="image"
+      href="/images/hero.webp"
+      fetchpriority="high">
     <title>Solar Watch</title>
   </head>
   <body>
@@ -126,7 +130,7 @@
             </div>
           </article>
           <article class="experience-card">
-            <img src="/images/falling-stars.webp" alt="A brilliant night sky ready for stargazing" />
+            <img src="/images/falling-stars.webp" alt="A brilliant night sky ready for stargazing" loading="lazy" />
             <div class="card-copy">
               <p class="eyebrow">For young explorers</p>
               <h3>Family Stargazing</h3>
