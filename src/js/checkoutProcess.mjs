@@ -100,7 +100,7 @@ export default class CheckoutProcess {
 
     try {
       if (!this.services) {
-        const module = await import("./ExternalServices.mjs");
+        const module = await import("./externalServices.mjs");
         this.services = new module.default();
       }
 
