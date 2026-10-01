@@ -1,0 +1,46 @@
+[
+	{
+		"id": "constellation-map-tee",
+		"name": "Constellation Map T-Shirt",
+		"category": "T-Shirts",
+		"description": "A soft everyday tee featuring a fine-line map of the northern night sky.",
+		"price": 28,
+		"color": "Midnight Black",
+		"colorHex": "#111315",
+		"sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+		"featured": true
+	},
+	{
+		"id": "night-shift-hoodie",
+		"name": "Night Shift Observatory Hoodie",
+		"category": "Hoodies",
+		"description": "A warm, relaxed-fit hoodie for late-night observing sessions, finished with a small Solar Watch chest mark.",
+		"price": 64,
+		"color": "Deep Teal",
+		"colorHex": "#035e7b",
+		"sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+		"featured": true
+	},
+	{
+		"id": "moon-phase-long-sleeve",
+		"name": "Moon Phase Long-Sleeve Shirt",
+		"category": "Long-Sleeve Shirts",
+		"description": "A lightweight long-sleeve shirt with the lunar cycle illustrated across the back.",
+		"price": 38,
+		"color": "Dry Sage",
+		"colorHex": "#ccc9a1",
+		"sizes": ["XS", "S", "M", "L", "XL"],
+		"featured": true
+	},
+	{
+		"id": "solar-watch-field-cap",
+		"name": "Solar Watch Field Cap",
+		"category": "Accessories",
+		"description": "A sturdy cotton cap with an embroidered observatory emblem and an adjustable back strap.",
+		"price": 32,
+		"color": "Signal Orange",
+		"colorHex": "#fe5d26",
+		"sizes": ["One size"],
+		"featured": true
+	}
+]

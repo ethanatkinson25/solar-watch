@@ -1,0 +1,50 @@
+[
+	{
+		"id": "starlight-constellations",
+		"title": "Starlight and Constellations",
+		"category": "Night Sky Tour",
+		"description": "Find familiar constellations and distant deep-sky objects with a guide beneath the open night sky.",
+		"duration": "2 hours",
+		"price": 35,
+		"schedule": "Evenings, weather permitting",
+		"image": "/images/falling-stars.webp",
+		"imageAlt": "A brilliant night sky ready for stargazing",
+		"featured": true
+	},
+	{
+		"id": "solar-observing",
+		"title": "Solar Observing Session",
+		"category": "Solar Observing",
+		"description": "View the Sun safely through specialist solar telescopes and learn how astronomers study our nearest star.",
+		"duration": "90 minutes",
+		"price": 28,
+		"schedule": "Daily at 10:00 AM and 1:00 PM",
+		"image": "/images/earth.webp",
+		"imageAlt": "Stars above the observatory grounds",
+		"featured": true
+	},
+	{
+		"id": "behind-the-dome",
+		"title": "Behind the Observatory Dome",
+		"category": "Behind the Scenes",
+		"description": "Step inside the observatory, explore its instruments, and see how a telescope turns faint light into discovery.",
+		"duration": "75 minutes",
+		"price": 32,
+		"schedule": "Fridays and Saturdays at 6:00 PM",
+		"image": "/images/lens-exposure.webp",
+		"imageAlt": "The observatory telescope beneath the stars",
+		"featured": true
+	},
+	{
+		"id": "family-moonwatch",
+		"title": "Family Moonwatch",
+		"category": "Family Stargazing",
+		"description": "Explore the Moon together with telescope viewing, hands-on activities, and stories about our closest celestial neighbor.",
+		"duration": "1 hour",
+		"price": 20,
+		"schedule": "Selected weekend evenings",
+		"image": "/images/moon.webp",
+		"imageAlt": "The Moon beneath a star-filled night sky",
+		"featured": true
+	}
+]
