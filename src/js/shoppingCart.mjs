@@ -16,6 +16,7 @@ function cartItemTemplate(item) {
       <p class="cart-card__color">${item.Colors?.[0]?.ColorName || "Standard"}</p>
       <p class="cart-card__quantity">qty: ${item.Quantity ?? 1}</p>
       <p class="cart-card__price">$${item.FinalPrice}</p>
+      <button class="cart-card__remove" type="button" data-remove-item="${item.Id ?? item.id}" aria-label="Remove ${item.Name} from cart">Remove</button>
     </li>
   `;
 }
@@ -25,6 +26,14 @@ export default class ShoppingCart {
   constructor(key, listElement) {
     this.key = key;
     this.listElement = listElement;
+
+    this.listElement?.addEventListener("click", (event) => {
+      const removeButton = event.target.closest("[data-remove-item]");
+      if (!removeButton) return;
+
+      this.removeItem(removeButton.dataset.removeItem);
+      this.renderCartContents();
+    });
   }
 
   // Returns the cart items from localStorage as an array.
@@ -58,6 +67,13 @@ export default class ShoppingCart {
     setLocalStorage(this.key, items);
   }
 
+  removeItem(productId) {
+    const items = this.getItems().filter(
+      (item) => String(item.Id ?? item.id) !== String(productId),
+    );
+    setLocalStorage(this.key, items);
+  }
+
   // Renders the cart contents or an empty-state message.
   renderCartContents() {
     const cartItems = this.getItems();
@@ -67,6 +83,6 @@ export default class ShoppingCart {
       return;
     }
 
-    renderListWithTemplate(cartItemTemplate, this.listElement, cartItems);
+    renderListWithTemplate(cartItemTemplate, this.listElement, cartItems, "afterbegin", true);
   }
 }

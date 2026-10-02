@@ -5,6 +5,7 @@ loadHeaderFooter();
 
 const listElement = document.querySelector("#image-list");
 
+// Initializes the gallery by fetching images from the NASA API and populating the image list
 async function initGallery() {
   if (!listElement) return;
 
@@ -17,6 +18,8 @@ async function initGallery() {
 
   const result = await response.json();
   const items = result.collection?.items ?? [];
+
+  // Map the fetched items to ImageList instances and initialize them
   const images = await Promise.all(items.map(async (item) => {
     const data = item.data?.[0];
     if (!data) return null;
@@ -35,6 +38,8 @@ async function initGallery() {
     return { image, url: item.links?.[0]?.href };
   }));
 
+  // Filter out any null entries resulting from failed image initialization
+  // and only include images that have a valid URL
   images.filter((entry) => entry?.url).forEach(({ image, url }) => {
     const listItem = document.createElement("li");
     listItem.className = "gallery-card";
@@ -55,6 +60,7 @@ async function initGallery() {
   });
 }
 
+// Handles gallery errors
 initGallery().catch((error) => {
   console.error("Failed to load images:", error);
   if (listElement) {
