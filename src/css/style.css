@@ -554,7 +554,7 @@ img {
 .products {
   max-width: 90rem;
   margin: 0 auto;
-  padding: 1.25rem max(7%, calc((100% - 76rem) / 2)) 4rem;
+  padding: 1.25rem min(7rem, max(7%, calc((100% - 76rem) / 2))) 4rem;
 }
 
 .products-toolbar {
