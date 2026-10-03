@@ -24,6 +24,35 @@ export async function loadHeaderFooter(){
 
   if (headerElement) {
     renderWithTemplate(headerTemplate, headerElement, null);
+
+    if (!headerElement.dataset.menuBound) {
+      headerElement.addEventListener("click", (event) => {
+        const menuButton = event.target.closest(".menu-toggle");
+        const menuNav = headerElement.querySelector(".main-nav");
+
+        if (menuButton) {
+          const expanded = menuButton.getAttribute("aria-expanded") === "true";
+          menuButton.setAttribute("aria-expanded", String(!expanded));
+          menuNav?.classList.toggle("is-open", !expanded);
+        } else if (event.target.closest(".main-nav a")) {
+          const button = headerElement.querySelector(".menu-toggle");
+          button?.setAttribute("aria-expanded", "false");
+          menuNav?.classList.remove("is-open");
+        }
+      });
+
+      headerElement.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+
+        const menuButton = headerElement.querySelector(".menu-toggle");
+        const menuNav = headerElement.querySelector(".main-nav");
+        menuButton?.setAttribute("aria-expanded", "false");
+        menuNav?.classList.remove("is-open");
+        menuButton?.focus();
+      });
+
+      headerElement.dataset.menuBound = "true";
+    }
   }
   if (footerElement) {
     renderWithTemplate(footerTemplate, footerElement);
@@ -53,13 +82,13 @@ export function setLocalStorage(key, data) {
 }
 
 // Adds a click handler that works for touch and mouse events.
-export function setClick(selector, callback) {
-  qs(selector).addEventListener("touchend", (event) => {
-    event.preventDefault();
-    callback();
-  });
-  qs(selector).addEventListener("click", callback);
-}
+// export function setClick(selector, callback) {
+//   qs(selector).addEventListener("touchend", (event) => {
+//     event.preventDefault();
+//     callback();
+//   });
+//   qs(selector).addEventListener("click", callback);
+// }
 
 // Displays a custom alert banner at the top of the main content and optionally scrolls the page back to the top.
 export function alertMessage(message, scroll = true) {

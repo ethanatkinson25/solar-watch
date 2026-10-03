@@ -1,7 +1,5 @@
 import { getLocalStorage, renderListWithTemplate, setLocalStorage } from "./utilis.mjs";
-import { loadHeaderFooter } from "./utilis.mjs";
 
-loadHeaderFooter();
 
 // Builds the HTML for a single cart item row.
 function cartItemTemplate(item) {
@@ -16,15 +14,24 @@ function cartItemTemplate(item) {
       <p class="cart-card__color">${item.Colors?.[0]?.ColorName || "Standard"}</p>
       <p class="cart-card__quantity">qty: ${item.Quantity ?? 1}</p>
       <p class="cart-card__price">$${item.FinalPrice}</p>
+      <button class="cart-card__remove" type="button" data-remove-item="${item.Id ?? item.id}" aria-label="Remove ${item.Name} from cart">Remove</button>
     </li>
   `;
 }
 
 export default class ShoppingCart {
-  // Stores the storage key and the cart container element.
+  // Stores the storage key and the cart container element along with adding the event listener for removing items.
   constructor(key, listElement) {
     this.key = key;
     this.listElement = listElement;
+
+    this.listElement?.addEventListener("click", (event) => {
+      const removeButton = event.target.closest("[data-remove-item]");
+      if (!removeButton) return;
+
+      this.removeItem(removeButton.dataset.removeItem);
+      this.renderCartContents();
+    });
   }
 
   // Returns the cart items from localStorage as an array.
@@ -33,6 +40,7 @@ export default class ShoppingCart {
     return Array.isArray(items) ? items : [];
   }
 
+  // Adds a product to the cart, incrementing the quantity if it already exists.
   addItem(product) {
     const items = this.getItems();
     const productId = product.id ?? product.Id;
@@ -58,7 +66,15 @@ export default class ShoppingCart {
     setLocalStorage(this.key, items);
   }
 
-  // Renders the cart contents or an empty-state message.
+  // Removes a product from the cart based on its ID.
+  removeItem(productId) {
+    const items = this.getItems().filter(
+      (item) => String(item.Id ?? item.id) !== String(productId),
+    );
+    setLocalStorage(this.key, items);
+  }
+
+  // Renders the cart contents or an empty-state message. Updates the DOM accordingly.
   renderCartContents() {
     const cartItems = this.getItems();
 
@@ -67,6 +83,6 @@ export default class ShoppingCart {
       return;
     }
 
-    renderListWithTemplate(cartItemTemplate, this.listElement, cartItems);
+    renderListWithTemplate(cartItemTemplate, this.listElement, cartItems, "afterbegin", true);
   }
 }
