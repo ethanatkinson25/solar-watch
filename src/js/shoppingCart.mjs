@@ -1,7 +1,5 @@
 import { getLocalStorage, renderListWithTemplate, setLocalStorage } from "./utilis.mjs";
-import { loadHeaderFooter } from "./utilis.mjs";
 
-loadHeaderFooter();
 
 // Builds the HTML for a single cart item row.
 function cartItemTemplate(item) {
@@ -22,7 +20,7 @@ function cartItemTemplate(item) {
 }
 
 export default class ShoppingCart {
-  // Stores the storage key and the cart container element.
+  // Stores the storage key and the cart container element along with adding the event listener for removing items.
   constructor(key, listElement) {
     this.key = key;
     this.listElement = listElement;
@@ -42,6 +40,7 @@ export default class ShoppingCart {
     return Array.isArray(items) ? items : [];
   }
 
+  // Adds a product to the cart, incrementing the quantity if it already exists.
   addItem(product) {
     const items = this.getItems();
     const productId = product.id ?? product.Id;
@@ -67,6 +66,7 @@ export default class ShoppingCart {
     setLocalStorage(this.key, items);
   }
 
+  // Removes a product from the cart based on its ID.
   removeItem(productId) {
     const items = this.getItems().filter(
       (item) => String(item.Id ?? item.id) !== String(productId),
@@ -74,7 +74,7 @@ export default class ShoppingCart {
     setLocalStorage(this.key, items);
   }
 
-  // Renders the cart contents or an empty-state message.
+  // Renders the cart contents or an empty-state message. Updates the DOM accordingly.
   renderCartContents() {
     const cartItems = this.getItems();
 

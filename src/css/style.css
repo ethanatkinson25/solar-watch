@@ -78,6 +78,11 @@ img {
   justify-content: space-between;
   padding: 1.25rem 7%;
   color: var(--dry-sage);
+  background: transparent;
+}
+
+.gallery-page .main-header {
+  background: var(--black);
 }
 
 .brand {
@@ -88,7 +93,7 @@ img {
   font-size: 1rem;
   font-weight: 700;
   white-space: nowrap;
-  animation: fadeIn 4s ease-in-out;
+  animation: fadeIn 3.5s ease-in-out;
 }
 
 .brand img {
@@ -100,7 +105,7 @@ img {
 .header-menu {
   display: flex;
   align-items: center;
-  animation: fadeIn 4s ease-in-out;
+  animation: fadeIn 3.5s ease-in-out;
 }
 
 .menu-toggle {
@@ -152,7 +157,7 @@ img {
   font-size: 0.75rem;
   line-height: 1.2;
   transition: background-color 160ms ease, color 160ms ease;
-  animation: fadeIn 4s ease-in-out;
+  animation: fadeIn 3.5s ease-in-out;
 }
 
 .header-cta:hover,
@@ -171,7 +176,7 @@ img {
     linear-gradient(180deg, rgb(0 0 0 / 42%), rgb(0 0 0 / 45%) 55%, var(--black)),
     url("/images/hero.webp") center 46% / cover no-repeat;
   text-align: center;
-  animation: fadeIn 4s ease-in-out;
+  animation: fadeIn 3.5s ease-in-out;
 }
 
 .hero-content {
@@ -269,7 +274,7 @@ img {
 }
 
 .section.stories {
-  animation: fadeIn 4s ease-in-out;
+  animation: fadeIn 3.5s ease-in-out;
 }
 
 .story-grid,
@@ -688,6 +693,7 @@ img {
   margin: 0 auto;
   padding: 6rem 5% 4rem;
   list-style: none;
+  animation: fadeIn 3.5s ease-in-out;
 }
 
 .gallery-card {
@@ -719,6 +725,14 @@ img {
   line-height: 1.5;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
+}
+
+.gallery-header {
+  text-align: center;
+  padding-top: 6rem;
+  font-size: 1rem;
+  font-weight: 400;
+  animation: fadeIn 3.5s ease-in-out;
 }
 
 @keyframes fadeIn {

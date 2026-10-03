@@ -82,13 +82,13 @@ export function setLocalStorage(key, data) {
 }
 
 // Adds a click handler that works for touch and mouse events.
-export function setClick(selector, callback) {
-  qs(selector).addEventListener("touchend", (event) => {
-    event.preventDefault();
-    callback();
-  });
-  qs(selector).addEventListener("click", callback);
-}
+// export function setClick(selector, callback) {
+//   qs(selector).addEventListener("touchend", (event) => {
+//     event.preventDefault();
+//     callback();
+//   });
+//   qs(selector).addEventListener("click", callback);
+// }
 
 // Displays a custom alert banner at the top of the main content and optionally scrolls the page back to the top.
 export function alertMessage(message, scroll = true) {
