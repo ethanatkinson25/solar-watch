@@ -3,6 +3,7 @@ import { resolve } from "node:path";
 
 export default defineConfig({
   root: resolve(import.meta.dirname, "src"),
+  envDir: import.meta.dirname,
   publicDir: resolve(import.meta.dirname, "public"),
   base: "./",
   build: {
