@@ -407,6 +407,99 @@ img {
   font-size: 0.75rem;
 }
 
+.weather-status {
+  max-width: 58rem;
+  margin: 0 auto 0.75rem;
+  color: color-mix(in srgb, var(--dry-sage) 76%, var(--black));
+  font-size: 0.75rem;
+}
+
+.mars-weather-panel {
+  max-width: 58rem;
+  margin: 0 auto;
+}
+
+.weather-report {
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--sky-blue) 24%, var(--baltic-blue));
+  border-radius: 0.5rem;
+  background:
+    radial-gradient(ellipse at top right, color-mix(in srgb, var(--baltic-blue) 40%, transparent), transparent 55%),
+    color-mix(in srgb, var(--baltic-blue) 12%, var(--black));
+  box-shadow: 0 1rem 2.5rem color-mix(in srgb, var(--black) 55%, transparent);
+}
+
+.weather-report__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--sky-blue) 18%, transparent);
+}
+
+.weather-report__eyebrow,
+.weather-metric__label {
+  margin: 0;
+  color: var(--sky-blue);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.weather-report__sol {
+  margin: 0.2rem 0 0;
+  color: var(--dry-sage);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.weather-report__period {
+  max-width: 18rem;
+  margin: 0;
+  color: color-mix(in srgb, var(--dry-sage) 78%, var(--black));
+  font-size: 0.7rem;
+  text-align: right;
+}
+
+.weather-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+  padding: 1.25rem;
+}
+
+.weather-metric {
+  position: relative;
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid color-mix(in srgb, var(--baltic-blue) 70%, var(--black));
+  border-radius: 0.35rem;
+  background: color-mix(in srgb, var(--black) 58%, transparent);
+}
+
+.weather-metric__value {
+  display: inline-block;
+  margin: 0.7rem 0 0;
+  color: var(--dry-sage);
+  font-size: clamp(1.6rem, 4vw, 2.35rem);
+  line-height: 1;
+}
+
+.weather-metric__unit {
+  display: inline-block;
+  margin: 0 0 0 0.35rem;
+  color: var(--sky-blue);
+  font-size: 0.8rem;
+}
+
+.weather-metric__range {
+  margin: 0.7rem 0 0;
+  color: color-mix(in srgb, var(--dry-sage) 70%, var(--black));
+  font-size: 0.65rem;
+}
+
 .experience-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
@@ -685,6 +778,28 @@ img {
   object-fit: cover;
 }
 
+
+.section.mars-weather-promo {
+  border-top: 1px solid color-mix(in srgb, var(--baltic-blue) 35%, var(--black));
+}
+
+.section.mars-weather-promo > .section-heading {
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.section.mars-weather-promo .section-intro + .text-link {
+  margin-top: 0.65rem;
+}
+
+.section.mars-weather-promo > img {
+  width: min(100%, 50rem);
+  height: clamp(12rem, 35vw, 25rem);
+  margin: 2rem auto 0;
+  object-fit: cover;
+}
+
 #image-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
@@ -754,6 +869,14 @@ img {
 }
 
 @media (max-width: 760px) {
+  .weather-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .weather-metric:last-child {
+    grid-column: 1 / -1;
+  }
+
   .main-header {
     padding: 1rem 5%;
   }
@@ -909,6 +1032,25 @@ img {
 }
 
 @media (max-width: 520px) {
+  .weather-report__header {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 1.25rem;
+  }
+
+  .weather-report__period {
+    text-align: left;
+  }
+
+  .weather-metrics {
+    grid-template-columns: 1fr;
+    padding: 0.85rem;
+  }
+
+  .weather-metric:last-child {
+    grid-column: auto;
+  }
+
   .main-header {
     align-items: flex-start;
     flex-wrap: wrap;
