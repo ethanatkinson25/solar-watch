@@ -1,40 +1,40 @@
 import { getLocalStorage, loadHeaderFooter, alertMessage } from "./utilis.mjs";
 import CheckoutProcess from "./checkoutProcess.mjs";
+import ShoppingCart from "./shoppingCart.mjs";
+import { updateTotalPrice } from "./cartPrice.mjs";
 
 loadHeaderFooter();
 
-const form = document.querySelector("#checkout-form");
-const checkout = new CheckoutProcess("so-cart", ".order-summary");
+document.addEventListener("DOMContentLoaded", function() {
+  if (window.location.href.indexOf('checkout/index.html') > -1) {
+    const cart = new ShoppingCart("so-cart", document.querySelector(".product-list"));
+    cart.renderCartContents();
 
-checkout.init();
-checkout.calculateOrderTotal();
+    const form = document.querySelector(".checkout-form");
+    const checkout = new CheckoutProcess("so-cart", ".order-summary");
 
-form?.addEventListener("submit", async (event) => {
-  event.preventDefault();
+    updateTotalPrice.call(cart);
 
-  if (!form.checkValidity()) {
-    form.reportValidity();
-    return;
-  }
+    // Event listener to update the total price when an item is removed from the cart
+    cart.listElement?.addEventListener("click", (event) => {
+      if (event.target.closest("[data-remove-item]")) {
+        updateTotalPrice.call(cart);
+      }
+    });
 
-  checkout.list = getLocalStorage("so-cart") || [];
-  checkout.calculateOrderTotal();
-
-  try {
-    const response = await checkout.checkout(form);
-    console.log("Order submitted successfully", response);
-    form.reset();
-    localStorage.removeItem("so-cart");
     checkout.init();
     checkout.calculateOrderTotal();
-    window.location.href = "./success.html";
-  } catch (error) {
-    console.error("Checkout failed", error);
-    const errorMessage =
-      error?.message && typeof error.message === "object"
-        ? JSON.stringify(error.message)
-        : error?.message || "There was a problem submitting your order. Please try again.";
 
-    alertMessage(errorMessage);
+    // Handle checkout form submission
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const formData = new FormData(form);
+      const jsonObject = Object.fromEntries(formData.entries());
+      const jsonString = JSON.stringify(jsonObject, null, 2);
+      
+      console.log(jsonString);
+      
+      localStorage.setItem('formData', jsonString);
+    });
   }
 });
