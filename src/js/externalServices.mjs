@@ -1,15 +1,46 @@
-const baseURL = import.meta.env.VITE_SERVER_URL;
-const checkoutURL = `${baseURL}checkout`;
+const configuredBaseURL = import.meta.env.VITE_SERVER_URL;
+if (!configuredBaseURL) {
+  throw new Error("VITE_SERVER_URL must be configured before making API requests.");
+}
 
-// Converts a fetch response into JSON and throws a structured error with the server payload when the request fails.
+const baseURL = new URL(`${configuredBaseURL.replace(/\/+$/, "")}/`);
+
+function apiURL(path) {
+  return new URL(path, baseURL);
+}
+
+// Parses JSON responses and reports HTTP or malformed-response errors with useful context.
 export async function convertToJson(res) {
-  const jsonResponse = await res.json();
+  const responseText = await res.text();
+  let jsonResponse;
+
+  if (responseText) {
+    try {
+      jsonResponse = JSON.parse(responseText);
+    } catch {
+      if (!res.ok) {
+        throw new Error(`Request failed with HTTP ${res.status} ${res.statusText}.`);
+      }
+
+      throw new Error(`Expected a JSON response, but received invalid JSON (HTTP ${res.status}).`);
+    }
+  }
 
   if (res.ok) {
+    if (!responseText) {
+      throw new Error(`Expected a JSON response, but received an empty response (HTTP ${res.status}).`);
+    }
+
     return jsonResponse;
-  } else {
-    throw { name: "servicesError", message: jsonResponse };
   }
+
+  const detail = jsonResponse?.message ?? jsonResponse;
+  const message = detail
+    ? typeof detail === "string"
+      ? detail
+      : JSON.stringify(detail)
+    : res.statusText;
+  throw new Error(`Request failed with HTTP ${res.status}${message ? `: ${message}` : "."}`);
 }
 
 export default class ExternalServices {
@@ -21,7 +52,7 @@ export default class ExternalServices {
   // Fetches product data for a category from the backend API.
   async getData(category = this.category) {
     if (!category) return [];
-    const response = await fetch(`${baseURL}products/search/${category}`);
+    const response = await fetch(apiURL(`products/search/${category}`));
     const data = await convertToJson(response);
     return data.Result || data;
   }
@@ -32,7 +63,7 @@ export default class ExternalServices {
     if (!trimmedTerm) return [];
 
     const response = await fetch(
-      `${baseURL}products/search/${encodeURIComponent(trimmedTerm)}`,
+      apiURL(`products/search/${encodeURIComponent(trimmedTerm)}`),
     );
     const data = await convertToJson(response);
     return data.Result || data;
@@ -40,14 +71,14 @@ export default class ExternalServices {
 
   // Fetches a single product by its unique ID.
   async findProductById(id) {
-    const response = await fetch(`${baseURL}product/${id}`);
+    const response = await fetch(apiURL(`product/${id}`));
     const data = await convertToJson(response);
     return data.Result || data;
   }
 
   // Submits a completed order to the backend checkout endpoint.
   async checkout(payload) {
-    const response = await fetch(checkoutURL, {
+    const response = await fetch(apiURL("checkout"), {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

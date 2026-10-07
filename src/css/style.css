@@ -559,7 +559,7 @@ img {
 }
 
 .shopping-cart {
-  min-height: 100vh;
+  min-height: 50vh;
   padding: 8rem max(7%, calc((100% - 76rem) / 2)) 4rem;
   background:
     linear-gradient(180deg, rgb(0 0 0 / 45%), var(--black) 26rem),
@@ -642,6 +642,139 @@ img {
   border: 1px solid color-mix(in srgb, var(--baltic-blue) 55%, var(--black));
   background: color-mix(in srgb, var(--baltic-blue) 16%, var(--black));
   color: var(--sky-blue);
+}
+
+.cart-summary {
+  max-width: 90rem;
+  margin: 0 auto;
+  /* padding: 1.25rem min(7rem, max(7%, calc((100% - 76rem) / 2))) 4rem; */
+  border-top: 1px solid color-mix(in srgb, var(--baltic-blue) 45%, var(--black));
+  background: color-mix(in srgb, var(--baltic-blue) 16%, var(--black));
+  color: var(--sky-blue);
+  padding: 8rem max(7%, calc((100% - 76rem) / 2)) 4rem;
+  text-align: center;
+} 
+
+.checkout-button {
+  min-height: 2.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--tiger-flame);
+  background: var(--tiger-flame);
+  color: var(--black);
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+.checkout-form {
+  display: grid;
+  gap: 0.65rem;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  border: 1px solid color-mix(in srgb, var(--baltic-blue) 55%, var(--black));
+  background: color-mix(in srgb, var(--baltic-blue) 16%, var(--black));
+}
+
+.checkout {
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 4rem max(7%, calc((100% - 76rem) / 2));
+  border-top: 1px solid color-mix(in srgb, var(--baltic-blue) 45%, var(--black));
+  background: color-mix(in srgb, var(--baltic-blue) 8%, var(--black));
+}
+
+.checkout .form-title {
+  max-width: 40rem;
+  margin: 0 auto 1.25rem;
+  color: var(--dry-sage);
+  font-size: 1.75rem;
+  font-weight: 400;
+}
+
+.checkout-form label {
+  color: var(--sky-blue);
+  font-size: 0.8rem;
+}
+
+.checkout-form input {
+  width: 100%;
+  min-height: 2.75rem;
+  margin-bottom: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--baltic-blue) 65%, var(--black));
+  border-radius: 0;
+  background: var(--black);
+  color: var(--dry-sage);
+  font: inherit;
+}
+
+.checkout-form input:focus-visible {
+  border-color: var(--sky-blue);
+  outline: 2px solid var(--sky-blue);
+  outline-offset: 2px;
+}
+
+.checkout-form .checkout-button {
+  justify-self: start;
+  margin-top: 0.5rem;
+}
+
+.checkout-form .checkout-button:hover {
+  background: transparent;
+  color: var(--dry-sage);
+}
+
+.checkout-page {
+  display: grid;
+  min-height: 70vh;
+  align-content: center;
+  justify-items: center;
+  gap: 1rem;
+  padding: 9rem max(7%, calc((100% - 76rem) / 2)) 5rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--baltic-blue) 45%, var(--black));
+  background:
+    linear-gradient(180deg, rgb(0 0 0 / 45%), var(--black) 26rem),
+    url("/images/hero.webp") center top / 40rem auto no-repeat;
+  text-align: center;
+}
+
+.checkout-page h2 {
+  margin: 0;
+  color: var(--dry-sage);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.checkout-page p {
+  margin: 0;
+  color: var(--sky-blue);
+  font-size: 0.9rem;
+}
+
+.checkout-page a {
+  display: inline-flex;
+  min-height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5rem;
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--tiger-flame);
+  color: var(--dry-sage);
+  font-size: 0.75rem;
+  line-height: 1.2;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.checkout-page a:hover {
+  background: var(--tiger-flame);
+  color: var(--black);
+}
+
+.checkout-page a:focus-visible {
+  outline: 2px solid var(--sky-blue);
+  outline-offset: 3px;
 }
 
 .products {
@@ -840,6 +973,84 @@ img {
   line-height: 1.5;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
+}
+
+.tours {
+  max-width: 86rem;
+  margin: 0 auto;
+  padding: 7rem 5% 4rem;
+}
+
+.tours > h1 {
+  margin: 0 0 1.5rem;
+  color: var(--dry-sage);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+}
+
+.tour-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tour-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--baltic-blue) 55%, var(--black));
+  background: color-mix(in srgb, var(--baltic-blue) 16%, var(--black));
+}
+
+.tour-card > img {
+  height: clamp(11rem, 22vw, 15rem);
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.tour-card__content {
+  padding: 1.1rem;
+}
+
+.tour-card__category {
+  margin: 0 0 0.45rem;
+  color: var(--tiger-flame);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tour-card h2 {
+  margin: 0 0 0.6rem;
+  color: var(--dry-sage);
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.tour-card__description {
+  min-height: 4.5em;
+  margin: 0 0 0.9rem;
+  color: color-mix(in srgb, var(--dry-sage) 78%, var(--black));
+  font-size: 0.75rem;
+}
+
+.tour-card__details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin: 0;
+  color: var(--sky-blue);
+  font-size: 0.72rem;
+}
+
+.tour-card__schedule {
+  margin: 0.65rem 0 0;
+  color: color-mix(in srgb, var(--dry-sage) 70%, var(--black));
+  font-size: 0.68rem;
 }
 
 .gallery-header {
