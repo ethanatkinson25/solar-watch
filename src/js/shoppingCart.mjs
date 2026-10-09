@@ -1,4 +1,9 @@
-import { getLocalStorage, renderListWithTemplate, setLocalStorage } from "./utilis.mjs";
+import {
+  getLocalStorage,
+  renderListWithTemplate,
+  setLocalStorage,
+  updateCartCount,
+} from "./utilis.mjs";
 
 
 // Builds the HTML for a single cart item row.
@@ -64,6 +69,7 @@ export default class ShoppingCart {
     }
 
     setLocalStorage(this.key, items);
+    updateCartCount();
   }
 
   // Removes a product from the cart based on its ID.
@@ -72,6 +78,7 @@ export default class ShoppingCart {
       (item) => String(item.Id ?? item.id) !== String(productId),
     );
     setLocalStorage(this.key, items);
+    updateCartCount();
   }
 
   // Renders the cart contents or an empty-state message. Updates the DOM accordingly.
