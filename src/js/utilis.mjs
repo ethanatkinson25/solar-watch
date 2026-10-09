@@ -24,6 +24,7 @@ export async function loadHeaderFooter(){
 
   if (headerElement) {
     renderWithTemplate(headerTemplate, headerElement, null);
+    updateCartCount();
 
     if (!headerElement.dataset.menuBound) {
       headerElement.addEventListener("click", (event) => {
@@ -74,6 +75,27 @@ export function getParam(param) {
 // Retrieves a stored cart or other JSON value from localStorage.
 export function getLocalStorage(key) {
   return JSON.parse(localStorage.getItem(key));
+}
+
+// Updates the shared cart badge and its accessible label.
+export function updateCartCount() {
+  const items = getLocalStorage("so-cart");
+  const count = Array.isArray(items)
+    ? items.reduce(
+        (total, item) => total + Number(item.Quantity ?? item.quantity ?? 1),
+        0,
+      )
+    : 0;
+  const cartLink = document.querySelector(".cart-nav-link");
+  const cartCount = cartLink?.querySelector(".cart-count");
+
+  if (cartCount) {
+    cartCount.textContent = String(count);
+    cartLink.setAttribute(
+      "aria-label",
+      `View shopping cart, ${count} ${count === 1 ? "item" : "items"}`,
+    );
+  }
 }
 
 // Saves JSON data to localStorage under the given key.
