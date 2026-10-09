@@ -29,5 +29,8 @@ export default defineConfig([globalIgnores(["**/node_modules/", "**/dist/"]), {
     rules: {
         "no-unused-vars": "warn",
         "no-console": "warn",
+        "no-undef": "warn",
+        "no-redeclare": "error",
+        "no-dupe-keys": "error",
     },
 }]);
