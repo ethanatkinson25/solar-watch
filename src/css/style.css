@@ -663,8 +663,6 @@ img {
 }
 
 .cart-summary {
-  max-width: 90rem;
-  margin: 0 auto;
   /* padding: 1.25rem min(7rem, max(7%, calc((100% - 76rem) / 2))) 4rem; */
   border-top: 1px solid color-mix(in srgb, var(--baltic-blue) 45%, var(--black));
   background: color-mix(in srgb, var(--baltic-blue) 16%, var(--black));
@@ -695,7 +693,7 @@ img {
 }
 
 .checkout {
-  max-width: 90rem;
+  max-width: 300rem;
   margin: 0 auto;
   padding: 4rem max(7%, calc((100% - 76rem) / 2));
   border-top: 1px solid color-mix(in srgb, var(--baltic-blue) 45%, var(--black));
